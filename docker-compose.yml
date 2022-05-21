@@ -13,8 +13,8 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=ziot
     volumes:
       # named volumes
-      - ~/ziot_db:/data/db
-      - ~/ziot_db_config/mongod.conf:/etc/mongod.conf
+      - /ziot_db:/data/db
+      - /ziot_db_config/mongod.conf:/etc/mongod.conf
     networks:
       - ziot_nw
 networks:
