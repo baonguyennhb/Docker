@@ -1,0 +1,22 @@
+version: '3.6'
+# usage:
+# sudo docker-compose build
+# sudo docker-compose up
+services:
+  my-mongodb:
+    image: mongo:latest
+    container_name: ziot_db
+    ports:
+      - 5003:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=ziot
+      - MONGO_INITDB_ROOT_PASSWORD=ziot
+    volumes:
+      # named volumes
+      - ~/ziot_db:/data/db
+      - ~/ziot_db_config/mongod.conf:/etc/mongod.conf
+    networks:
+      - ziot_nw
+networks:
+  ziot_nw:
+    driver: bridge
